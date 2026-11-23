@@ -1,0 +1,138 @@
+---
+title: "Mini in class example doc"
+author: "Me"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: readable
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    includes:
+      in_header: "favicon.html"
+---
+
+# Rmds as webpages
+
+Reference with more details: https://adamspannbauer.github.io/hosting-Rmds-with-GitHub-Pages/
+
+There are many portfolio options besides Rmd files.  I think this is a pretty attractive one for you because:
+
+* Free
+* You know R & Rmd
+* You have work in R that could be portfolio'd
+* You get more acquainted with GitHub
+
+# TODO list
+
+* [ ] Git setup
+* [ ] Knit and publish this as a website
+* [ ] Add content
+* [ ] Add personality
+
+# Git setup
+
+* [ ] Make a https://GitHub.com account!
+* [ ] Make first repo
+
+# Knit and publish this as a website
+
+* [ ] knit
+* [ ] rename knitted html as `index.html`
+* [ ] upload to GitHub
+  * this method will change if you continue with git
+* [ ] turn on GitHub pages for your repo
+* [ ] wait.....
+  
+# Add content
+
+* [ ] Add an R piece
+* [ ] Add a Tableau piece
+
+## R
+
+```{r message=FALSE, warning=FALSE}
+library(ggplot2)
+library(plotly)
+
+head(msleep[, c("name", "vore", "sleep_total", "brainwt")])
+
+# * [ ] Create a plot of brainwt and sleep_total colored by vore
+# * [ ] Convert plot to be plotly
+```
+
+## Tableau
+
+* Find your dashboard on https://public.tableau.com/
+  * Use mine as a back-up: 
+    * https://public.tableau.com/app/profile/adam.spannbauer2558/viz/recreate-test-f23/Dashboard1
+* Click the share button
+* Click the Copy Link button
+* Paste link into an Rmd chunk using `knitr::include_url()`
+  * Your link should start with `https://public.tableau.com/views`; if it mentions `user` it will fail (this bullet will prolly fall out of date)
+* Update your link so that it shows `?:showVizHome=no&:embed=true` right after the dashboard name
+  * My original URL was: `https://public.tableau.com/views/recreate-test-f23/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link`
+  * My usable URL is: `https://public.tableau.com/views/recreate-test-f23/Dashboard1?:showVizHome=no&:embed=true`
+  
+Prolly good to have a link to the live tableau dashboard as well.  Let's add one with markdown syntax.
+
+Check out [the full dashboard on Tableau Public!](paste-your-og-link-here)
+
+```{r out.width="100%", echo=FALSE}
+tableau_url <- "paste-your-link-here"
+knitr::include_url(tableau_url, height = "400px")
+```
+
+# Add personality
+
+* [ ] Edit theme
+* [ ] Edit/imbed things with "markdown"
+
+## Themes
+
+### Built-in
+
+There are some built-in themes you can use by specifying in `theme` (shown in next little code chunk); the available themes are: `cerulean`, `cosmo`, `cyborg`, `darkly`, `flatly`, `journal`, `lumen`, `paper`, `readable`, `sandstone`, `simplex`, `slate`, `spacelab`, `superhero`, `united`, `yeti`.
+
+```
+---
+title: "Example using theme"
+author: "Me"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: darkly
+---
+```
+
+### Other
+
+More themes are available many ways, but one more example to show how you can theme with the `bslib` package (requires `install.packages('bslib')` first).
+
+```
+---
+title: "Example using theme"
+author: "Me"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    theme: 
+      bootswatch: vapor
+---
+```
+
+If you’re already in the know about CSS, it’s worth noting that you can apply you own style sheet to an Rmd file. See the [official R Markdown Cookbook here](https://bookdown.org/yihui/rmarkdown-cookbook/html-css.html).
+
+## Play with markdown
+
+Add a gif or image from online!  When doing this you want the URL you paste to end with `.jpg`, `.png`, or `.gif` (right click and open image in new tab until you see it).
+
+An example url: https://i.giphy.com/t3BUt5IaoL4po2SU0o.gif
+
+<center>
+  <img src="use-your-url-here" width="30%">
+</center>
+
+The formula for SSE is:
+
+$$SSE = ???$$
