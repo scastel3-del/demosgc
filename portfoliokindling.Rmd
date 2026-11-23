@@ -8,8 +8,6 @@ output:
     toc: true
     toc_depth: 3
     toc_float: true
-    includes:
-      in_header: "favicon.html"
 ---
 
 # Rmds as webpages
